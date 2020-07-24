@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {box-sizing: border-box}
+        body {margin: 0; padding: 0; height: 100vh;
+        display: grid;
+        grid-auto-rows: 3rem 40vh 3rem auto;
+        }
+        nav, main, main div, .options, .show {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333333;
+            color: white;
+            font-size: medium;
+        }
+        main div {
+            width: 20vw;
+            height: 20vw;
+            font-size: 20vw;
+            color: dodgerblue;
+        }
+        .show {
+            justify-content: flex-start;
+        }
+        .show div {
+            padding-left: 2rem;
+            flex: 1;
+        }
+        .show button {
+            border: none;
+            color: white;
+            font-size: medium;
+            height: 100%;
+            background: #333333;
+        }
+        footer {
+            display: grid;
+            grid-template-columns: 5rem auto;
+            grid-auto-rows: auto;
+            background-color: #333333;
+            color: white;
+        }
+        .options {
+            padding: 5px;
+            flex-flow: column nowrap;
+            justify-content: start;
+        }
+        .options button {
+            flex: 1;
+            width: 100%;
+            font-size: medium;
+            background-color: #333333;
+            border: #333333 0 solid;
+            color: white;
+        }
+        .choices {
+            display: grid;
+            grid-template-columns: repeat(4, 25%);
+            grid-auto-rows: auto;
+        }
+        .choices button {
+            font-size: xx-large;
+        }
+        @media only screen and (max-width: 414px ) {
+            main div {
+                width: 50vw;
+                height: 50vw;
+                font-size: 50vw;
+            }
+            .choices {
+                grid-template-columns: repeat(2, 50%);
+                grid-auto-rows: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav>Score: 0</nav>
+<main>
+    <div id="shape">△</div>
+</main>
+<div class="show">
+    <div>Answers:</div>
+    <div class="show-answers" id="show-answers" style="flex: 5"></div>
+    <div>
+        <button type="button" onclick="checkAnswer()">&checkmark;</button>
+        <button type="button" onclick="backward()">↩</button>
+    </div>
+</div>
+<footer>
+    <div class="options">
+        <button type="button" onclick="clearData()">+</button>
+        <button>↻</button>
+        <button>¡</button>
+        <button>×</button>
+    </div>
+    <div class="choices">
+        <button type="button" id="c1" onclick="takeAnswer(this.innerHTML, this.id)">😃</button>
+        <button type="button" id="c2" onclick="takeAnswer(this.innerHTML, this.id)">😎</button>
+        <button type="button" id="c3" onclick="takeAnswer(this.innerHTML, this.id)">🤣</button>
+        <button type="button" id="c4" onclick="takeAnswer(this.innerHTML, this.id)">😃</button>
+    </div>
+</footer>
+<div style="display: none">
+    <p id="show-answers-mem"></p>
+</div>
+<script>
+    /*function backward() {
+        let answer = document.getElementById("show-answers-mem").innerHTML,
+        c = 1;
+        for (let i=0; i<answer.length-1; i++)
+        {
+
+        }
+
+    }*/
+    function clearData() {
+        /*let c = 1;
+        while ( c < 5)
+        {
+            let x= "c";
+            x +=c;
+            document.getElementById(x).innerHTML= "";
+            c++;
+        }*/
+        document.getElementById("show-answers").innerHTML= "";
+    }
+    function takeAnswer(answer, idN) {
+        document.getElementById("show-answers").innerHTML += answer;
+        document.getElementById("show-answers-mem").innerHTML += idN;
+    }
+</script>
+</body>
+</html>
