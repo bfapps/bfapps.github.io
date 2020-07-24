@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fa" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>ZgameJ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 2.5rem auto 2.5rem;
+        }
+        #main-container {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 2.5rem auto 2.5rem;
+        }
+        #container-1 {
+            background-color: #333333;
+            display: unset;
+            color: white;
+            height: 100vh;
+            padding: 2rem;
+            font-size: x-small;
+            direction: rtl;
+            text-align: center;
+        }
+        nav, footer {
+            background-color: #333333;
+            display: flex;
+            flex-flow: row nowrap;
+            color: white;
+            font-size: small;
+        }
+        main {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        article {
+            flex: 3.5;
+            background-color: #333333;
+            font-size: small;
+            color: white;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: auto;
+        }
+        article div {
+            font-size: medium;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        article h3 {
+            color: white;
+        }
+        aside {
+            background-color: #5a52a5;
+            flex: 1;
+            padding: 10px;
+            color: white;
+            direction: rtl;
+            font-size: medium;
+        }
+        nav div {
+            flex: 1;
+            background-color: dodgerblue;
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            flex: 1;
+            background-color: mediumseagreen;
+            border: none;
+            color: white;
+            font-size: small;
+        }
+        button p {
+            margin: 0;
+            padding: 0;
+        }
+        fieldset {
+            border: none;
+        }
+        fieldset div {
+            display: flex;
+            flex-direction: column;
+        }
+        #main-container input {
+            display: none;
+        }
+        #container-1 label {
+            font-size: larger;
+        }
+        #container-1 select, #container-1 input {
+            width: 40%;
+        }
+        select {
+            padding: 0.5rem;
+        }
+
+        label {
+            padding: 0.25rem;
+        }
+
+        @media only screen and (max-width: 500px) {
+            main {
+                flex-direction: column;
+            }
+            fieldset div {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-around;
+            }
+            fieldset h4 {
+                margin: 0;
+                padding: 0;
+            }
+            #container-1 select, #container-1 input {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="container-1">
+<h3>سلام، خوش اومدی به نوع نامحدود بازی دوم. سطحت رو انتخاب کن و بعد از ورود پسورد. راحت بازیت رو بکن</h3>
+    <br>
+    <label for="difficulty-level"><b>سطحت رو انتخاب کن لطفا</b></label><br><br>
+    <select id="difficulty-level">
+        <option value="1">آسون</option>
+        <option value="2">متوسط</option>
+        <option value="3">سخت</option>
+        <option value="4">حرفه ای</option>
+    </select>
+    <br><br>
+    <label for="password"><b>رمز</b></label><br><br>
+    <input type="text" id="password">
+    <br><br>
+    <button type="button" style="padding: 1rem;margin-top: 1rem;width: 100%;text-align: center" onclick="passwordcheck()">آزمودن رمز</button>
+</div>
+<div id="main-container" style="display: none;">
+    <nav>
+        <div><p>امتیاز : </p><p id="level">1</p></div>
+    </nav>
+    <main>
+        <article id="article">
+            <div id="21"></div><div id="22"></div><div id="23"></div><div id="24"></div><div id="25"></div><div id="26"></div>
+            <div id="27"></div><div id="28"></div><div id="29"></div><div id="30"></div><div id="31"></div><div id="32"></div>
+            <div id="33"></div><div id="34"></div><div id="35"></div><div id="36"></div><div id="37"></div><div id="38"></div>
+            <div id="39"></div><div id="40"></div><div id="41"></div><div id="42"></div><div id="43"></div><div id="44"></div>
+            <div id="45"></div><div id="46"></div><div id="47"></div><div id="48"></div><div id="49"></div><div id="50"></div>
+            <div id="51"></div><div id="52"></div><div id="53"></div><div id="54"></div><div id="55"></div><div id="56"></div>
+            <div id="57"></div><div id="58"></div><div id="59"></div><div id="60"></div><div id="61"></div><div id="62"></div>
+        </article>
+        <aside>
+            <h4>مجموع میشود؟</h4>
+            <form>
+                <fieldset>
+                    <div>
+                        <input class="items" name="question-bar" value="" type="radio" id="1">
+                        <label id="11" for="1">0</label>
+                        <input class="items" name="question-bar" value="" type="radio" id="2">
+                        <label id="12" for="2">0</label>
+                        <input class="items" name="question-bar" value="" type="radio" id="3">
+                        <label id="13" for="3">0</label>
+                        <input class="items" name="question-bar" value="" type="radio" id="4">
+                        <label id="14" for="4">0</label>
+                    </div>
+                </fieldset>
+            </form>
+        </aside>
+    </main>
+    <footer>
+        <button type="button" class="press" onclick="exitfile()">خروج از سطج</button>
+        <button type="button" class="press" onclick="checkanswer();">ثبت گزینه</button>
+        <button type="button" class="press" onclick="clearthegame(); cleardata(); startgame(); setTimeout(clearthegame, 5000);">شروع</button>
+    </footer>
+</div>
+
+<div style="display: none">
+    <p id="mistakes"></p>
+    <p id="answer"></p>
+    <p id="difficulty">1</p>
+</div>
+<script>
+    document.getElementById("difficulty-level").addEventListener("change", function () {
+        var x = document.getElementById("difficulty-level").value;
+        if (x == 1)
+        {
+            document.getElementById("difficulty").innerHTML= "1";
+        }
+        if (x == 2)
+        {
+            document.getElementById("difficulty").innerHTML= "2";
+        }
+        if (x == 3)
+        {
+            document.getElementById("difficulty").innerHTML= "3";
+        }
+        if (x == 4)
+        {
+            document.getElementById("difficulty").innerHTML= "4";
+        }})
+
+    function checkanswer() {
+        let x1 = document.getElementById("1").checked,
+            x2 = document.getElementById("2").checked,
+            x3 = document.getElementById("3").checked,
+            x4 = document.getElementById("4").checked,
+            mistake = document.getElementById("mistakes").innerHTML,
+            final;
+        var v = 0,
+            answer = document.getElementById("answer").innerHTML,
+            c = 0,
+            level = document.getElementById("level").innerHTML;
+        while (c < level)
+        {
+            c = c + 1;
+        }
+
+        if (x1 == true)
+        {
+            v = document.getElementById("1").value;
+        }
+        if (x2 == true)
+        {
+            v = document.getElementById("2").value;
+        }
+        if (x3 == true)
+        {
+            v = document.getElementById("3").value;
+        }
+        if (x4 == true)
+        {
+            v = document.getElementById("4").value;
+        }
+        if (v == answer)
+        {
+            c = c + 2;
+            document.getElementById("26").innerHTML= "صحیح بود";
+        }
+        else {
+            c = c - 1;
+            alert("پاسخ اشتباه");
+            document.getElementById("mistakes").innerHTML= mistake + 1;
+        }
+        if (c > 0)
+        {
+            document.getElementById("level").innerHTML= c;
+        }
+        if (mistake == "111")
+        {
+            alert("جونت تمومه. دوباره از اول شروع میشه");
+            final = document.getElementById("level").innerHTML;
+            final = "امتیاز پایانیت شد " + final;
+            alert(final);
+            document.getElementById("level").innerHTML= "1";
+        }
+    }
+    function cleardata() {
+        var c = 0,
+            c1 = 10;
+        document.getElementById("answer").innerHTML="";
+        while (c < 4)
+        {   c = c + 1;
+            c1 = c1 + 1;
+            document.getElementById(c).value="";
+            document.getElementById(c1).innerHTML="";
+        }
+    }
+
+    function startgame() {
+        var level = document.getElementById("difficulty").innerHTML,
+            ran = 0,
+            h,
+            c = 0,
+            sum1,
+            sum2,
+            sum3,
+            sum4,
+            min1,
+            min2,
+            sum5,
+            sum6,
+            choice,
+            c1 = 0,
+            sum = 0,
+            valid;
+        while (c < level)
+        {
+            c = c + 1;
+        }
+        if (c == 1)
+        {
+            while (c1 < 4)
+            {
+                ran = Math.floor(Math.random() * 4) + 1;
+                h = Math.floor(Math.random() * 41) + 21;
+                valid = document.getElementById(h).innerHTML;
+                if (valid != "")
+                {
+                    h = Math.floor(Math.random() * 41) + 21;
+                }
+                document.getElementById(h).innerHTML =  ran;
+                sum = ran + sum;
+                c1 = c1 + 1;
+            }
+        }
+        else if (c == 2)
+        {
+            while (c1 < 3)
+            {
+                ran = Math.floor(Math.random() * 8) + 1;
+                h = Math.floor(Math.random() * 41) + 21;
+                valid = document.getElementById(h).innerHTML;
+                if (valid != "")
+                {
+                    h = Math.floor(Math.random() * 41) + 21;
+                }
+                document.getElementById(h).innerHTML =  ran;
+                sum = ran + sum;
+                c1 = c1 + 1;
+            }
+        }
+        else if (c == 3)
+        {
+            while (c1 < 5)
+            {
+                ran = Math.floor(Math.random() * 5) + 1;
+                h = Math.floor(Math.random() * 41) + 21;
+                valid = document.getElementById(h).innerHTML;
+                if (valid != "")
+                {
+                    h = Math.floor(Math.random() * 41) + 21;
+                }
+                document.getElementById(h).innerHTML =  ran;
+                sum = ran + sum;
+                c1 = c1 + 1;
+            }
+        }
+        else if (c == 4)
+        {
+            while (c1 < 4)
+            {
+                ran = Math.floor(Math.random() * 8) + 1;
+                h = Math.floor(Math.random() * 41) + 21;
+                valid = document.getElementById(h).innerHTML;
+                if (valid != "")
+                {
+                    h = Math.floor(Math.random() * 41) + 21;
+                }
+                document.getElementById(h).innerHTML =  ran;
+                sum = ran + sum;
+                c1 = c1 + 1;
+            }
+        }
+        document.getElementById("answer").innerHTML=sum;
+        sum5 = sum + 1;
+        sum6 = sum + 3;
+        min1 = sum - 1;
+        min2 = sum - 3;
+        sum1 = Math.floor(Math.random()*2) + sum5;
+        sum2 = Math.floor(Math.random()*2) + sum6;
+        sum3 = min1 - Math.floor(Math.random()*2);
+        sum4 = min2 - Math.floor(Math.random()*2);
+        choice = Math.floor(Math.random() * 3) + 11;
+        document.getElementById("11").innerHTML = sum1;
+        document.getElementById("12").innerHTML = sum2;
+        document.getElementById("13").innerHTML = sum3;
+        document.getElementById("14").innerHTML = sum4;
+        document.getElementById(choice).innerHTML= sum;
+        document.getElementById("1").value = sum1;
+        document.getElementById("2").value = sum2;
+        document.getElementById("3").value = sum3;
+        document.getElementById("4").value = sum4;
+        choice = choice - 10;
+        document.getElementById(choice).value= sum;
+
+
+    }
+    function clearthegame () {
+        var c = 20;
+        while (c < 62)
+        {
+            c = c + 1;
+            document.getElementById(c).innerHTML= "";
+
+        }
+    }
+
+    function passwordcheck() {
+        var x = document.getElementById("password").value;
+        if (x == "1111")
+        {
+            document.getElementById("container-1").style.display="none";
+            document.getElementById("main-container").style.display="grid";
+        }
+        else {
+            alert("پسوردت اشتباه بود عزیزم");
+        }
+    }
+    function exitfile() {
+        var final = document.getElementById("level").innerHTML;
+        final = "امتیاز پایانیت شد " + final;
+        alert(final);
+        document.getElementById("main-container").style.display= "none";
+        document.getElementById("container-1").style.display= "inherit";
+    }
+</script>
+</body>
+</html>
