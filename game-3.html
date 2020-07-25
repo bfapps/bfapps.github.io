@@ -63,9 +63,14 @@
             grid-template-columns: repeat(4, 25%);
             grid-auto-rows: auto;
         }
-        .choices button {
+        .choices div {
             font-size: xx-large;
-            border-radius:0;
+            border-radius: 0;
+            background-color: #dddddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
         }
         @media only screen and (max-width: 414px ) {
             main div {
@@ -101,10 +106,10 @@
         <button>×</button>
     </div>
     <div class="choices">
-        <button type="button" id="c1" onclick="takeAnswer(this.innerHTML, this.id)">😃</button>
-        <button type="button" id="c2" onclick="takeAnswer(this.innerHTML, this.id)">😎</button>
-        <button type="button" id="c3" onclick="takeAnswer(this.innerHTML, this.id)">🤣</button>
-        <button type="button" id="c4" onclick="takeAnswer(this.innerHTML, this.id)">😃</button>
+        <div id="c1" onclick="takeAnswer(this.innerHTML, this.id)">😃</div>
+        <div id="c2" onclick="takeAnswer(this.innerHTML, this.id)">😎</div>
+        <div id="c3" onclick="takeAnswer(this.innerHTML, this.id)">🤣</div>
+        <div id="c4" onclick="takeAnswer(this.innerHTML, this.id)">😃</div>
     </div>
 </footer>
 <div style="display: none">
