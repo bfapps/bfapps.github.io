@@ -28,7 +28,7 @@
             justify-content: flex-start;
         }
         .show div {
-            padding-left: 2rem;
+            padding-left: 5px;
             flex: 1;
         }
         .show button {
@@ -60,13 +60,13 @@
         }
         .choices {
             display: grid;
-            grid-template-columns: repeat(4, 25%);
+            grid-template-columns: repeat(10, 10%);
             grid-auto-rows: auto;
         }
         .choices div {
             font-size: xx-large;
             border-radius: 0;
-            background-color: #dddddd;
+            background-color: #333333;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,66 +79,144 @@
                 font-size: 50vw;
             }
             .choices {
-                grid-template-columns: repeat(2, 50%);
+                grid-template-columns: repeat(5, 20%);
                 grid-auto-rows: auto;
             }
         }
     </style>
 </head>
 <body>
-<nav>Score: 0</nav>
+<nav id="score">3</nav>
 <main>
     <div id="shape">△</div>
 </main>
 <div class="show">
     <div>Answers:</div>
-    <div class="show-answers" id="show-answers" style="flex: 5"></div>
+    <div class="show-answers" id="show-answers" style="flex: 2"></div>
     <div>
-        <button type="button" onclick="checkAnswer()">&checkmark;</button>
+        <button type="button" id="check" onclick="checkAnswer()">&checkmark;</button>
         <button type="button" onclick="backward()">↩</button>
     </div>
 </div>
 <footer>
     <div class="options">
-        <button type="button" onclick="clearData()">+</button>
-        <button>↻</button>
+        <button type="button" id="start" onclick="clearData(); startGame();">+</button>
+        <button type="button" id="reset" onclick="resetGame();">↻</button>
         <button>¡</button>
         <button>×</button>
     </div>
     <div class="choices">
-        <div id="c1" onclick="takeAnswer(this.innerHTML, this.id)">😃</div>
-        <div id="c2" onclick="takeAnswer(this.innerHTML, this.id)">😎</div>
-        <div id="c3" onclick="takeAnswer(this.innerHTML, this.id)">🤣</div>
-        <div id="c4" onclick="takeAnswer(this.innerHTML, this.id)">😃</div>
+        <div id="c1" onclick="takeAnswer(this.innerHTML)">😁</div>
+        <div id="c2" onclick="takeAnswer(this.innerHTML)">😂</div>
+        <div id="c3" onclick="takeAnswer(this.innerHTML)">🤣</div>
+        <div id="c4" onclick="takeAnswer(this.innerHTML)">😍</div>
+        <div id="c5" onclick="takeAnswer(this.innerHTML)">🤩</div>
+        <div id="c6" onclick="takeAnswer(this.innerHTML)">😅</div>
+        <div id="c7" onclick="takeAnswer(this.innerHTML)">😊</div>
+        <div id="c8" onclick="takeAnswer(this.innerHTML)">😛</div>
+        <div id="c9" onclick="takeAnswer(this.innerHTML)">🤐</div>
+        <div id="c10" onclick="takeAnswer(this.innerHTML)">😶</div>
+        <div id="c11" onclick="takeAnswer(this.innerHTML)">🙄</div>
+        <div id="c12" onclick="takeAnswer(this.innerHTML)">😥</div>
+        <div id="c13" onclick="takeAnswer(this.innerHTML)">😴</div>
+        <div id="c14" onclick="takeAnswer(this.innerHTML)">🤑</div>
+        <div id="c15" onclick="takeAnswer(this.innerHTML)">😡</div>
+        <div id="c16" onclick="takeAnswer(this.innerHTML)">😱</div>
+        <div id="c17" onclick="takeAnswer(this.innerHTML)">🤯</div>
+        <div id="c18" onclick="takeAnswer(this.innerHTML)">😭</div>
+        <div id="c19" onclick="takeAnswer(this.innerHTML)">🧐</div>
+        <div id="c20" onclick="takeAnswer(this.innerHTML)">🤢</div>
     </div>
 </footer>
 <div style="display: none">
     <p id="show-answers-mem"></p>
 </div>
 <script>
-    /*function backward() {
-        let answer = document.getElementById("show-answers-mem").innerHTML,
-        c = 1;
-        for (let i=0; i<answer.length-1; i++)
-        {
+    window.sessionStorage.setItem('mistakes', "");
+    function startGame() {
+        let char = ["😁", "😂", "🤣", "😍", "🤩", "😅", "😊", "😛", "🤐", "😶", "🙄", "😥", "😴", "🤑", "😡", "😱", "🤯", "😭", "🧐", "🤢"];
+        let charN1;
+        let charN2 = 0;
+        let c = 0;
+        let time = setInterval(show, 1000)
+        let answer = "";
+        function show () {
+            if (c === 2){
+               clearInterval(time);
+                clearScreen();
+                document.getElementById('start').disabled = true;
+                document.getElementById('check').disabled = false;
 
+            }
+            else {
+                charN1 = Math.floor(Math.random()* 19) + 1;
+                if (charN1 === charN2)
+                {
+                    charN1 = Math.floor(Math.random()* 19) + 1;
+                }
+                document.getElementById("shape").innerHTML = char[charN1];
+                answer += char[charN1];
+                window.sessionStorage.setItem('answer', answer);
+                charN2 = charN1;
+                c++;
+            }
+        }
+    }
+    function checkAnswer() {
+        let realAnswer = window.sessionStorage.getItem('answer');
+        let userAnswer= document.getElementById("show-answers").innerHTML;
+        let scoreAddress = document.getElementById("score");
+        let scoreN;
+        let mistakesN;
+        if (realAnswer !== "")
+        {
+            if (realAnswer === userAnswer){
+                scoreN = Number(scoreAddress.innerHTML) + 2;
+                scoreAddress.innerHTML = scoreN;
+                document.getElementById("shape").innerHTML = "&checkmark;";
+            }
+            else {
+                scoreN = Number(scoreAddress.innerHTML);
+                document.getElementById("shape").innerHTML = "×";
+                mistakesN = Number(window.sessionStorage.getItem('mistakes')) + 1;
+                window.sessionStorage.setItem('mistakes', mistakesN);
+                document.getElementById('show-answers').innerHTML += "⇒" + realAnswer;
+                if (scoreN > 0)
+                {
+                    scoreAddress.innerHTML = scoreN - 1;
+                }
+                if (mistakesN === 3)
+                {
+                    alert("You lost. And your final score is: " + scoreN);
+                    resetGame();
+                }
+            }
+            document.getElementById('start').disabled=false;
+            document.getElementById('check').disabled = true;
+        }
+        else {
+            alert('Please start the game');
         }
 
-    }*/
-    function clearData() {
-        /*let c = 1;
-        while ( c < 5)
-        {
-            let x= "c";
-            x +=c;
-            document.getElementById(x).innerHTML= "";
-            c++;
-        }*/
+    }
+    function backward() {
         document.getElementById("show-answers").innerHTML= "";
     }
-    function takeAnswer(answer, idN) {
-        document.getElementById("show-answers").innerHTML += answer;
-        document.getElementById("show-answers-mem").innerHTML += idN;
+    function clearData() {
+        window.sessionStorage.setItem('answer', "");
+        backward();
+    }
+    function clearScreen() {
+        document.getElementById("shape").innerHTML= "";
+    }
+    function resetGame() {
+        clearData();
+        clearScreen();
+        document.getElementById("score").innerHTML="0";
+        window.sessionStorage.setItem('mistakes', "");
+    }
+    function takeAnswer(userAnswer) {
+        document.getElementById("show-answers").innerHTML += userAnswer;
     }
 </script>
 </body>
