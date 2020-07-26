@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="Fa">
+<head>
+    <meta charset="UTF-8">
+    <title>Game 3 Help</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {box-sizing: border-box}
+        body {
+            padding: 0; margin: 0; display: grid;  min-height: 100vh;
+            background-color: #222222;
+            grid-template-columns: 1fr;
+            grid-auto-rows: fit-content(100%) fit-content(100%) auto;
+        }
+        header {
+            background-color: orangered;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+            background-color: white;
+
+        }
+        nav button {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            border-collapse: collapse;
+            border-radius: 0;
+            width: 100%;
+            height: 100%;
+        }
+        nav button:focus {
+            background-color: mediumseagreen;
+            color: white;
+            border: none;
+        }
+        #en, #fa {
+            font-size: small;
+            color: white;
+            display: flex;
+            flex-flow: nowrap row;
+            width: 100%;
+            padding: 10px;
+        }
+        #en div, #fa div {
+            flex: 1;
+        }
+        #fa {
+            direction: rtl;
+        }
+        #fa div {
+            direction: rtl;
+        }
+
+        @media only screen and (max-width: 414px) {
+                #en, #fa {
+                    flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>Help</header>
+<nav>
+    <button type="button" onclick="english()">English</button>
+    <button type="button" onclick="persian()">فارسی</button>
+</nav>
+<main>
+    <div id="en">
+        <div>
+            <h3>Guidance</h3>
+            <p>+ : Start Game</p>
+            <p>↻ : Reset Game</p>
+            <p>¡ : Information</p>
+            <p>× : Exit Game</p>
+            <p>&checkmark; : Submit Answer</p>
+            <p>&leftarrow; : Delete Answer</p>
+        </div>
+        <div>
+            <h3>How To Play</h3>
+            <p>
+                You need to press + to start the game each time. After pressing + game will show you some characters in random order and you must remember the exact order, and then use visual keyboard to enter them in previous order.
+                Finally you must press &checkmark; to submit your answer. Be careful that you may only have 3 mistakes.
+            </p>
+        </div>
+    </div>
+    <div id="fa" style="display:none">
+        <div>
+            <h3>راهنما</h3>
+            <p>+ : شروع بازی</p>
+            <p>↻ : ریستارت کردن بازی</p>
+            <p>¡ : اطلاعات</p>
+            <p>× : خروج از بازی</p>
+            <p>&checkmark; : ثبت پاسخ</p>
+            <p>&leftarrow; : پاک کردن جواب</p>
+        </div>
+        <div>
+            <h3>چگونه بازی کردن</h3>
+            <p>
+                هر بارابتدا نیاز دارید + را فشار دهید تا بازی آغاز شود. پس از فشردن + بازی به شما حروف یا تصاویری را با ترتیب اتفاقی به شما نشان خواهد داد که شما باید ترتیب دقیق نمایش آن ها را به خاطر بسپارید. سپس با استفاده از صفحه کلید مجازی موجود آن ها را با ترتیب قبلی وارد کنید. در پایان میبایست یا قشردن علامت تیک پاسخ خود را ثبت کنید. دقت داشته باشید که تنها سه بار کجاز هستیداشتباه کنید.
+            </p>
+        </div>
+    </div>
+</main>
+<script>
+    function english() {
+        document.getElementById('en').style.display= "flex";
+        document.getElementById('fa').style.display= "none";
+    }
+    function persian() {
+        document.getElementById('fa').style.display= "flex";
+        document.getElementById('en').style.display= "none";
+    }
+</script>
+</body>
+</html>
