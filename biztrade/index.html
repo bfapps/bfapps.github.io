@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لیست محصولات</title>
+    <style media="screen">
+      * { box-sizing: border-box;}
+      body{
+        padding: 0; margin:0;
+        min-height: 100vh;
+        font-family:'Times New Roman', Times, serif;
+        font-size: small;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 2.5rem 2.5rem auto 3rem;
+      }
+      nav {
+        background-color: #333333;
+        font-size: medium;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        filter: drop-shadow(0 5px rgba(240,240,240,0.3));
+      }
+      nav p, nav a {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+      }
+      nav a:hover {
+        background-color: #444444;
+      }
+      .address {
+        direction: ltr;
+        color: rebeccapurple;
+        padding: 0 1rem 0 1rem;
+      }
+      main {
+        margin: 0.5rem;
+        padding: 1rem;
+        background-color: #f6f6f6;
+        color: black;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: auto;
+        grid-gap: 1rem;
+      }
+      main a {
+        background-color: white;
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+        opacity: 0.8;
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+        direction: rtl;
+        text-decoration: none;
+        color: rebeccapurple;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 1rem 2rem 20rem 3rem;
+        grid-gap: 0.25rem;
+      }
+      main a h3 {
+        direction: ltr;
+      }
+      img {
+        width:100%;
+        height:100%;
+      }
+      @media only screen and (max-width : 800px) {
+        main {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        main a {
+          grid-auto-rows: 1rem 2rem 15rem 3rem;
+        }
+      }
+      @media only screen and (max-width : 414px) {
+        nav {
+          font-size: small;
+        }
+        main {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">صفحه اصلی</a>
+      <a href="main-list">محصولات</a>
+      <a href="contact">راه های ارتباطی</a>
+      <a href="about">درباره</a>
+   </nav>
+   <div class="address">
+     <h3>Home > Products > Hot Drinks </h3>
+   </div>
+   <main>
+     <a href="http://biztrade.epizy.com" id="cake" class="product" title="dc20" onclick="pNumber(this.title)">
+       <h3>Hot Chocolate</h3>
+       <h3>code: dc20</h3>
+       <div><img src="./hotdrinks/hotchocolate.JPEG" style="background: black;"></div>
+       <p>برای مشاهده محصول کلیک کنید</p>
+     </a>
+     <a href="http://biztrade.epizy.com" id="tea" class="product" title="dc25" onclick="pNumber(this.title)">
+      <h3>Tea</h3>
+      <h3>code: dc25</h3>
+      <div><img src="./hotdrinks/tea.JPEG" style="background: black;"></div>
+      <p>برای مشاهده محصول کلیک کنید</p>
+     </a>
+     <a href="http://biztrade.epizy.com" id="coffee" class="product" title="dc30" onclick="pNumber(this.title)">
+       <h3>Coffee</h3>
+       <h3>code: dc30</h3>
+       <div><img src="./hotdrinks/coffee.JPG" style="background: black;"></div>
+       <p>برای مشاهده محصول کلیک کنید</p>
+     </a>
+     <a href="http://biztrade.epizy.com" id="sugar" class="product" title="dc35" onclick="pNumber(this.title)">
+       <h3>Latte</h3>
+       <h3>code: dc35</h3>
+       <div><img src="./hotdrinks/latte.JPG" style="background: black;"></div>
+       <p>برای مشاهده محصول کلیک کنید</p>
+     </a>
+   </main>
+   <footer></footer>
+
+   <div class="hidden" style="display:none;">
+     <form class="" action="form.php" method="post">
+       <input type="text" id="pn" name="productName" value="">
+     </form>
+   </div>
+
+   <script type="text/javascript">
+     function pNumber(x) {
+       document.getElementById('pn').value= x;
+     }
+   </script>
+  </body>
+</html>
