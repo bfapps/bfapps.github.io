@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Best And Most Beautiful Girl</title>
+    <style media="screen">
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        background: #ffde22;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      aside {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #ff414e;
+        transition: transform 500ms;
+        transform: translate3d(-100%,0,0);
+        z-index: 8;
+      }
+      label {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        /*transform: rotate(90deg);*/
+        font-size: 2rem;
+        z-index: 10;
+        color: #e62739;
+        transition: color 500ms;
+        cursor: pointer;
+      }
+      .menu:checked ~ label {
+        color: #ffde22;
+      }
+      .menu:checked ~ aside {
+        transform: translate3d(0,0,0);
+      }
+      .text {
+        position: fixed;
+        align-self: center;
+        text-align: center;
+        color: #e62739;
+        width: 90%;
+        font-size: 4rem;
+        text-transform: uppercase;
+        z-index: 1;
+        transform: translate3d(0,0,0);
+        transition: transform 800ms;
+        transition-delay: 1100ms;
+      }
+      .menu:checked ~ .text {
+        transform: translate3d(200%,0,0);
+      }
+      .char {
+        color: #ffde22;
+        font-size: 10rem;
+        letter-spacing: 10px;
+        transition: transform 300ms;
+        transform: translate3d(0,-300%,0);
+        z-index: 9;
+      }
+      #char-one {
+        transition-delay: 700ms;
+      }
+      #char-two {
+        transition-delay: 900ms;
+      }
+      #char-three {
+        transition-delay: 1100ms;
+      }
+      #char-four {
+        transition-delay: 1300ms;
+      }
+      #char-five {
+        transition-delay: 1500ms;
+      }
+      .menu:checked ~ .char {
+        transform: translate3d(0,0,0);
+      }
+      @media only screen and (max-width : 900px) {
+        .text {
+          font-size: 3rem;
+        }
+        .char {
+          font-size : 5rem;
+        }
+      }
+      @media only screen and (max-width : 500px) {
+        .char {
+          transform: translate3d(0,-900%,0);
+          font-size: 4rem;
+        }
+        .text {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <input style="display: none" class="menu" id="menu" type="checkbox" name="menu">
+    <label for="menu">&#9776;</label>
+
+    <aside class="">
+
+    </aside>
+    <div class="char" id="char-one">Z</div>
+    <div class="char" id="char-two">A</div>
+    <div class="char" id="char-three">H</div>
+    <div class="char" id="char-four">R</div>
+    <div class="char" id="char-five">A</div>
+    <div class="text">
+      who's the best and the most beautiful girl in the world?
+    </div>
+  </body>
+</html>
