@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/32f77a75ad.js" crossorigin="anonymous"></script>
+    <link href="../assets/css/all.css" rel="stylesheet">
+    <title>Simple 1.0</title>
+    <style media="screen">
+      * {box-sizing: border-box;}
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      aside {
+        width: 20rem;;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        background-color: #dd1d58;
+        transition: transform 500ms;
+        transform: translate3d(-100%,0,0);
+        z-index: 999;
+      }
+      .icon {
+        position: fixed;
+        font-size: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        cursor: pointer;
+      }
+      #menu-label {
+        top: 1rem;
+        color: #dd1d58;
+        transition: transform 200ms;
+      }
+      #menu:checked ~ aside {
+        transform: translate3d(0,0,0);
+      }
+      .social-media {
+        display: flex;
+        flex-flow: column nowrap;
+        position: fixed;
+        top: 3.5rem;
+        right:1rem;
+      }
+      #instagram, #twitter, #telegram {
+        color: #494d5f;
+        margin-bottom: 0.25rem;
+        transition: transform 200ms;
+      }
+      #inside-icon-in, #inside-icon-te, #inside-icon-tw  {
+        color: #dcdcdc;
+      }
+      #instagram:hover, #twitter:hover, #telegram:hover, #menu-label:hover {
+        transform: scale(1.2);
+      }
+      #instagram:hover, #twitter:hover, #telegram:hover {
+        color: #f1f1f1;
+      }
+      #instagram:hover #inside-icon-in {
+              color: #dd1d58;
+      }
+      #twitter:hover #inside-icon-tw {
+        color: #2ec3fc;
+      }
+      #telegram:hover #inside-icon-te {
+              color: #00ddff;
+      }
+
+      @media only screen and (max-width : 800px) {
+        #instagram, #twitter, #telegram {
+          color: #f1f1f1;
+        }
+        #inside-icon-in {
+          color: #dd1d58;
+        }
+        #inside-icon-te {
+          color: #00ddff;
+        }
+        #inside-icon-tw {
+          color: #2ec3fc;
+        }
+        aside {
+          width: 50%;
+        }
+      }
+      @media only screen and (max-width : 500px) {
+        #menu-label {
+          transition: transform 500ms;
+        }
+        #menu:checked ~ #menu-label {
+          color: #ffde22;
+        }
+        aside {
+          width: 100%;
+          padding-top: 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body style="background-color:#ffdc6a;">
+    <input style="display: none" class="menu" id="menu" type="checkbox" name="menu">
+    <label for="menu" id="menu-label" class="icon">
+      <span class="fa-stack">
+        <i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i>
+        <i class="fa fa-align-justify fa-stack-1x fa-inverse"></i>
+      </span>
+    </label>
+    <div id="social-media" class="social-media">
+      <a href="#" id="instagram" class="fa-stack"><i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i> <i id="inside-icon-in" class="fa fa-instagram fa-stack-1x fa-inverse"></i></a>
+      <a href="#" id="telegram" class="fa-stack"><i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i> <i id="inside-icon-te" class="fa fa-send fa-stack-1x fa-inverse"></i></a>
+      <a href="#" id="twitter" class="fa-stack"><i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i> <i id="inside-icon-tw" class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
+    </div>
+    <aside class="aside">
+      dsd
+    </aside>
+  </body>
+</html>
