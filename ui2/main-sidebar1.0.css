@@ -1,0 +1,280 @@
+:root {
+  --inside-icon: rebeccapurple;
+  /* var(--inside-icon); */
+  --bg: white;
+  /* var(--bg-icon); */
+  --font-color: rebeccapurple;
+  /* var(--font-color); */
+  --font-hover: rebeccapurple;
+  /* var(--font-hover); */
+  --bg-icon: white;
+  /* var(--bg-icon); */
+}
+html {
+  font-size: small;
+}
+body{
+  margin: 0 0 0 0;
+  position: relative;
+}
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 600;
+  background-color: var(--bg);
+}
+nav div {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 1.5rem;
+  color: var(--font-color);
+  font-size: medium;
+}
+.nav-items {
+  flex: 1;
+  justify-content: center;
+}
+.nav-items a {
+  color: var(--font-color);
+  text-decoration: none;
+  padding: 0 0.5rem;
+  text-transform: capitalize;
+}
+.nav-items a:hover {
+  color: var(--font-hover);
+}
+.nav-right, .nav-search {
+  padding: 0;
+}
+#inside-icon-search-1 {
+  color: rebeccapurple;
+}
+header {
+  position: relative;
+  display: block;
+  max-height: 100vh;
+}
+header img {
+  width: 100%;
+  max-height: 100vh;
+}
+.header-container {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.header-container h1, .header-container h1 span {
+  font-size: 5vw;
+  color: var(--font-color);
+  margin: 0;
+}
+.header-container h1 span {
+  color: #ff00dd;
+}
+.header-container p, .header-container i {
+  font-size: medium;
+}
+.header-container i {
+  color: var(--font-color);
+  margin-left: 1rem;
+}
+
+main {
+  margin: 0;
+  padding: 0 5rem;
+  font-size: 1rem;
+  transition: margin 500ms;
+}
+aside {
+  width: 20rem;;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+/*  background-color: var(--bg); */
+background-color: #fbe3e8;
+  transition: transform 500ms;
+  transform: translate3d(-100%,0,0);
+  z-index: 999;
+  padding: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+}
+aside a {
+  color: white;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+#inside-icon-side-1, #inside-icon-side-2, #inside-icon-side-3, #inside-icon-side-4, #inside-icon-side-5 {
+  color: rebeccapurple;
+}
+.aside-list {
+  margin: 0.5rem;
+  color: var(--font-color);
+}
+.icon {
+  display: none;
+  position: fixed;
+  font-size: 1rem;
+  right: 1.5rem;
+  top: 1.5rem;
+  z-index: 1000;
+  cursor: pointer;
+}
+#menu-label {
+  color: white;
+  transition: transform 200ms;
+}
+#menu:checked ~ aside {
+  transform: translate3d(0,0,0);
+}
+.social-media {
+  display: none;
+  flex-flow: column nowrap;
+  position: fixed;
+  top: 5rem;
+  right:1.5rem;
+  z-index: 800;
+}
+#search, #search-1 {
+  padding: 0.25rem;
+  border: none;
+  opacity: 0.7;
+}
+#search:focus, #search-1:focus {
+  opacity: 1;
+  border: solid orange 3px;
+}
+#instagram, #twitter, #telegram {
+  /*color: #494d5f;
+  margin-bottom: 0.25rem;*/
+  color: #f1f1f1;
+  transition: transform 200ms;
+}
+#inside-icon-in, #inside-icon-te, #inside-icon-tw  {
+  color: #cccccc;
+}
+#instagram:hover, #twitter:hover, #telegram:hover, #menu-label:hover {
+  transform: scale(1.2);
+}
+#instagram:hover, #twitter:hover, #telegram:hover {
+  color: #f1f1f1;
+}
+#instagram:hover #inside-icon-in {
+        color: #dd1d58;
+}
+#twitter:hover #inside-icon-tw {
+  color: #2ec3fc;
+}
+#telegram:hover #inside-icon-te {
+        color: #00ddff;
+}
+
+@media only screen and (max-width : 800px) {
+  nav {
+    font-size: small;
+  }
+  main {
+    margin: 0;
+    padding:0;
+  }
+  aside {
+    overflow-y: auto;
+  }
+  aside a, aside {
+    font-size: small;
+  }
+  .icon {
+    display: inherit;
+  }
+  .social-media {
+    display: flex;
+  }
+  .nav-right {
+    display: none;
+  }
+  #instagram, #twitter, #telegram {
+    color: #f1f1f1;
+    margin-bottom: 0.25rem;
+  }
+  #inside-icon-in {
+    color: #dd1d58;
+  }
+  #inside-icon-te {
+    color: #00ddff;
+  }
+  #inside-icon-tw {
+    color: #2ec3fc;
+  }
+  #instagram:hover, #twitter:hover, #telegram:hover, #menu-label:hover {
+    transform: scale(1);
+  }
+  aside {
+    width: 54%;
+  }
+}
+@media only screen and (max-width : 500px) {
+
+  #menu-label {
+    transition: transform 500ms;
+  }
+  .header-container p, .header-container i {
+    font-size: xx-small;
+  }
+  aside {
+    width: 100%;
+    padding-top: 4rem;
+  }
+  aside a {
+    font-size: 1rem;
+  }
+  .nav-items {
+    display: none;
+  }
+  .icon {
+    right: 1rem;
+  }
+  .social-media {
+    right: 1rem;
+  }
+}
+
+@media only screen and (max-width : 900px) {
+  .nav-search {
+    display: none;
+  }
+}
+
+
+/*
+<input style="display: none" class="menu" id="menu" type="checkbox" name="menu">
+<label for="menu" id="menu-label" class="icon">
+  <span class="fa-stack">
+    <i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i>
+    <i class="fa fa-align-justify fa-stack-1x fa-inverse"></i>
+  </span>
+</label>
+<div id="social-media" class="social-media">
+  <a href="#" id="instagram" class="fa-stack"><i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i> <i id="inside-icon-in" class="fa fa-instagram fa-stack-1x fa-inverse"></i></a>
+  <a href="#" id="telegram" class="fa-stack"><i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i> <i id="inside-icon-te" class="fa fa-send fa-stack-1x fa-inverse"></i></a>
+  <a href="#" id="twitter" class="fa-stack"><i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i> <i id="inside-icon-tw" class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
+</div>
+<aside class="aside">
+  <a href="#"><span class="fa-stack"><i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i><i class="fa fa-home fa-stack-1x fa-inverse"></i></span><span class="aside-list">Home</span></a>
+  <span style="color: #ffde22;margin: 0.25rem 0;"><span class="fa-stack"><i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i><i class="fa fa-search fa-stack-1x fa-inverse"></i></span> <input type="search" id="search" name="search" placeholder="Search" value=""> </span>
+  <a href="#"><span class="fa-stack"><i class="fas fa-circle fa-stack-2x" style="vertical-align: middle"></i><i class="fa fa-address-card fa-stack-1x fa-inverse"></i></span><span class="aside-list">contact</span></a>
+</aside>
+
+*/
